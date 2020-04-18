@@ -64,6 +64,6 @@ counties_totals.sort(key=lambda x: x[1])
 print(counties_totals)
 
 # Write to csv
-with open("covid_racial_"+updated_on+".csv", "w", newline="") as f:
+with open("data/covid_racial_"+updated_on+".csv", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerows(counties_totals)
