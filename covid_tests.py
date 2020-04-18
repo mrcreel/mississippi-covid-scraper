@@ -11,18 +11,19 @@ cases = soup.find_all(class_="simpleTable")[-1]
 
 
 tests = cases.find_all('tr')
+
 msdh_total_tests_raw = tests[0].find_all('td')[1].text.split(',')
 msdh_total_tests = int(''.join(msdh_total_tests_raw))
 
 
-print(msdh_total_tests)
+commercial_tests_raw = tests[1].find_all('td')[1].text.split(',')
+commercial_tests = int(''.join(commercial_tests_raw))
 
-test_counts = []
+testing = [msdh_total_tests, commercial_tests, msdh_total_tests+commercial_tests]
 
+print(testing)
 
-"""
 # Write to csv
-with open("out_tests.csv", "w", newline="") as f:
+with open("covid_tests.csv", "w", newline="") as f:
     writer = csv.writer(f)
-    writer.writerows(counties_totals)
-"""
+    writer.writerows(map(lambda x: [x], testing))
