@@ -33,6 +33,6 @@ testing = [msdh_total_tests, commercial_tests,
 print(testing)
 
 # Write to csv
-with open("data/covid_tests_"+updated_on+".csv", "w", newline="") as f:
+with open("covid_tests"+updated_on+".csv", "w", newline="") as f:
     writer = csv.writer(f)
-    writer.writerows(map(lambda x: [x], testing))
+    writer.writerow(testing)
