@@ -51,7 +51,7 @@ with open ("counties.csv") as f:
 for county_element in counties_list:
     is_found = any(county_element in sublist for sublist in counties_totals)
     if(is_found == False):
-        counties_totals.append([county_element, 0, 0, 0])
+        counties_totals.append([county_element,0, 0, 0, 0, 0])
 
 # Sort the list due to any added counties
 counties_totals.sort(key=lambda x: x[0])
