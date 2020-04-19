@@ -25,7 +25,7 @@ commercial_tests_raw = tests[1].find_all('td')[1].text.split(',')
 commercial_tests = int(''.join(commercial_tests_raw))
 
 uls = soup.find_all('ul')
-mphl = uls[14]
+mphl = uls[16]
 mphl_data = mphl.find_all('li')
 mphl_tests = mphl_data[0].text.split(': ')[1].split(',')
 mphl_tests = int(''.join(mphl_tests))
