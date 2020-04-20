@@ -23,7 +23,6 @@ cases = soup.find(id='msdhTotalCovid-19CasesByRace')
 counties = cases.find_all('tr')
 
 counties_totals = []
-
 for county in counties:
     data = county.find_all('td')
     county_name = data[0].text
