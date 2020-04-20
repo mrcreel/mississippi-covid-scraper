@@ -3,11 +3,16 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 
+from functions import getIntegerFromString, getMSDHpage
+
+soup = getMSDHpage()
+
+"""
 URL = 'https://msdh.ms.gov/msdhsite/_static/14,0,420.html'
 page = requests.get(URL)
 
 soup = BeautifulSoup(page.content, 'html.parser')
-
+"""
 raw_totals_date = soup.find(
     id='assetNow_pageSubtitle').text.split('Updated ')[1]
 updated_strp = datetime.strptime(raw_totals_date, '%B %d, %Y')
@@ -62,8 +67,9 @@ for county_element in counties_list:
 # Sort the list due to any added counties
 counties_totals.sort(key=lambda x: x[1])
 print(counties_totals)
-
+"""
 # Write to csv
 with open("data/covid_racial_"+updated_on+".csv", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerows(counties_totals)
+"""
